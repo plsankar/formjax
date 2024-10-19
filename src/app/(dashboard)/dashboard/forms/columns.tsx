@@ -1,6 +1,5 @@
 "use client";
 
-import { CheckIcon, ClipboardIcon } from "@radix-ui/react-icons";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/dashboard/ui/dropdown-menu";
 import { FormStatus, Submission, Tag } from "@prisma/client";
 
@@ -8,13 +7,11 @@ import ApikeyBox from "@/components/dashboard/apikey-box";
 import { Badge } from "@/components/dashboard/ui/badge";
 import { Button } from "@/components/dashboard/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { DataTableColumnHeader } from "@/components/dashboard/data-table/data-table-column-header";
 import type { FormWithRelations } from "@/types";
 import { MoreHorizontal } from "lucide-react";
 import clsx from "clsx";
 import { format } from "date-fns";
-import { useState } from "react";
 
 export const formsTableColumns: ColumnDef<FormWithRelations>[] = [
     {
