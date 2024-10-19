@@ -37,7 +37,7 @@ const SigninOptions = () => {
 
                     <div className="space-y-6">
                         <div className="space-y-2.5">
-                            <label for="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Your email
                             </label>
                             <input
