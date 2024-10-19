@@ -1,4 +1,3 @@
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import SigninOptions from "./signin-options";
 import { authOptions } from "@/lib/auth/options";
 import { getServerSession } from "next-auth/next";
@@ -16,7 +15,7 @@ export default async function LoginPage(request: Request) {
                     <SigninOptions />
                     <div className="bg-gray-100 p-4 rounded-lg mt-6 text-center">
                         <p className="text-sm text-gray-600">
-                            Don't have an account?{" "}
+                            Don&apos;t have an account?{" "}
                             <a href="/examples/forms/register1" className="text-blue-500 hover:underline">
                                 Create account
                             </a>
