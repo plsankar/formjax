@@ -2,6 +2,11 @@ import "./globals.dashboard.css";
 
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/dashboard/ui/sidebar";
+import { AppSidebar } from "@/components/dashboard/app-sidebar";
+import { Separator } from "@/components/dashboard/ui/separator";
+import BreadcrumbBar from "@/components/dashboard/breadcrumb-bar";
+import UserProfile from "@/components/dashboard/user/profile";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +22,22 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body className={`${inter.className}`}>
+                <SidebarProvider>
+                    <AppSidebar />
+                    <SidebarInset>
+                        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+                            <SidebarTrigger className="-ml-1" />
+                            <Separator orientation="vertical" className="mr-2 h-4" />
+                            <BreadcrumbBar />
+                            <div className="ml-auto">
+                                <UserProfile />
+                            </div>
+                        </header>
+                        <main>{children}</main>
+                    </SidebarInset>
+                </SidebarProvider>
+            </body>
         </html>
     );
 }

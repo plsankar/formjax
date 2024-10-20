@@ -1,9 +1,7 @@
-import DashHeader from "@/components/dashboard/header";
 import { DataTable } from "@/components/dashboard/data-table/data-table";
 import { DataTableFilterField } from "@/components/dashboard/data-table/data-table-filter";
 import { FormStatus } from "@prisma/client";
 import { FormWithRelations } from "@/types";
-import Sidebar from "@/components/dashboard/sidebar";
 import db from "@/lib/db/db";
 import { formsTableColumns } from "./columns";
 import { getCurrentUser } from "@/lib/db";
@@ -50,19 +48,10 @@ export default async function Dashboard() {
     }
 
     return (
-        <div className="flex min-h-screen w-full flex-col bg-muted/40">
-            <Sidebar />
-            <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14 items-center">
-                <DashHeader
-                    breadcrumbItems={[
-                        { text: "Dashboard", link: "/dashboard" },
-                        { text: "Forms", link: "/dashboard/forms" },
-                    ]}
-                />
-                <main className="flex-1 items-start p-4 sm:px-6 sm:py-0 max-w-screen-2xl w-full">
-                    <DataTable data={forms} columns={formsTableColumns} filter={filterFields} />
-                </main>
-            </div>
+        <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14 items-center">
+            <main className="flex-1 items-start p-4 sm:px-6 sm:py-0 max-w-screen-2xl w-full">
+                <DataTable data={forms} columns={formsTableColumns} filter={filterFields} />
+            </main>
         </div>
     );
 }
